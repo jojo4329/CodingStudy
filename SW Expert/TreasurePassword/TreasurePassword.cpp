@@ -8,7 +8,12 @@
 // N은 4의 배수이고, 9이상 28이하의 정수
 // N개의 숫자는 각각 0이상 F이하
 // K는 생성 가능한 수의 개수보다 크게 주어지지 않는다.
+#define _CRT_SECURE_NO_WARNINGS
 
+#define VS_TEST
+#ifdef VS_TEST
+#include <cstdio>
+#endif
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -53,7 +58,12 @@ int main(void)
 	int test_case;
 	int T;
 	result.clear();
+
+#ifdef VS_TEST
+	freopen("input_TreasurePW.txt", "r", stdin);
+#endif
 	cin >> T;
+	
 
 	for (test_case = 1; test_case <= T; ++test_case)
 	{
@@ -74,7 +84,7 @@ int main(void)
 
 		answer = result[K - 1];
 
-		printf("#%d %d", test_case, answer);
+		printf("#%d %d \n", test_case, answer);
 	}
 }
 

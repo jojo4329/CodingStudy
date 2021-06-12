@@ -13,7 +13,7 @@ using namespace std;
 int d, w, k, answer;
 int map[13][20];
 int tMap[13][20];
-bool select[13];
+bool sel[13];
 
 bool IsPass() {
 	for (int c = 0; c < w; c++) {
@@ -67,15 +67,15 @@ void Dfs(int _r, int cnt) {
 
 	// а╤гу
 	for (int r = _r; r < d; r++) {
-		if (select[r] == true) { continue; }
-		select[r] = true;
+		if (sel[r] == true) { continue; }
+		sel[r] = true;
 
 		for (int val = 0; val < 2; val++) {
 			Inject(r, val, true);
 			Dfs(r, cnt + 1);
 			Inject(r, val, false);
 		}
-		select[r] = false;		
+		sel[r] = false;
 	}
 }
 
@@ -112,8 +112,8 @@ int main(void)
 			}
 		}
 
-		answer = INT_MAX;
-		memset(select, false, sizeof(select));
+		answer = 987654321;
+		memset(sel, false, sizeof(sel));
 		Solution();
 
 		cout << "#" << test_case << " " << answer << endl;
